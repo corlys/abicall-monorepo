@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 
 import Providers from "@web/providers"
+import StickyWeb3Auth from '@web/components/StickyWeb3Auth'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
+          <StickyWeb3Auth />
           {children}
         </Providers>
       </body>
