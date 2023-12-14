@@ -21,6 +21,13 @@ To run the development server, use the following command:
 pnpm dev
 ```
 
+## Migrate Prisma Schema
+
+To migrate schema using Prisma to a Postgres database, use the following command:
+```bash
+pnpx prisma migrate dev --name init
+```
+
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
 ## Features
