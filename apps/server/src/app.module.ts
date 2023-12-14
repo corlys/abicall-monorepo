@@ -5,7 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 @Module({
-  imports: [ConfigModule.forRoot(), TrpcModule],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), TrpcModule],
   controllers: [AppController],
   providers: [AppService],
 })
