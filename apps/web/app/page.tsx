@@ -1,7 +1,12 @@
-import { trpc } from "@web/app/trpc";
+"use client";
 
-export default async function Home() {
-  const { greeting } = await trpc.hello.query({ name: "Piers Morgan Sucks Donkey Ballz" });
+import { useForm, SubmitHandler } from "react-hook-form";
+
+export default function Home() {
+
+  const { register, handleSubmit } = useForm<{ abi: string }>();
+  const abiSubmit: SubmitHandler<{ abi: string }> = (data) => console.log(data)
+
   return (
     <>
       <div className="h-screen flex items-center justify-center">
@@ -11,8 +16,8 @@ export default async function Home() {
         <div className="w-1/2">
           <h2 className="p-4">Enter your ABI down below!</h2>
           <div className="flex flex-col p-4 gap-4">
-            <textarea className="bg-neutral-300"></textarea>
-            <button className="px-4 py-2 bg-neutral-400 border-4 border-neutral-500 rounded-xl self-end">Submit</button>
+            <textarea {...register("abi", { required: true })} className="bg-neutral-300"></textarea>
+            <button onClick={handleSubmit(abiSubmit)} className="px-4 py-2 bg-neutral-400 border-4 border-neutral-500 rounded-xl self-end">Submit</button>
           </div>
         </div>
       </div>
